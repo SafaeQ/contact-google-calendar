@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <form
+        action="http://localhost:5686/create-event"
+        method="post"
+        class="mt-5"
+      >
+        <div class="col-md-12 my-5">
+          <h1 class="h1 text-center w-100">Contat Form</h1>
+        </div>
+        <div class="col-md-12 my-5 d-flex justify-content-center">
+          <div
+            class="row justify-content-center border rounded bg-light shadow p-3 w-75"
+          >
+            <% if (message) { %>
+            <div class="col-12 mb-1">
+              <div class="alert alert-success" role="alert">
+                Your message has been sent successfully. and an event has been
+                created on your google calendar. You will receive a Reminder via
+                email and popup notification before the event starts as you
+                requested.
+              </div>
+            </div>
+            <% } %>
+            <div class="col-md-12 form-group mb-3">
+              <label class="mb-1" for="summary">Subject:</label>
+              <input
+                required
+                type="text"
+                id="summary"
+                name="summary"
+                placeholder="Your subject..."
+                class="form-control"
+              />
+            </div>
+            <div class="col-md-12 form-group mb-3">
+              <label class="mb-1" for="description">Message:</label>
+              <textarea
+                name="description"
+                id="description"
+                cols="30"
+                rows="10"
+                class="form-control"
+                placeholder="Your message..."
+              ></textarea>
+            </div>
+            <div class="col-md-4 form-group mb-3">
+              <label class="mb-1" for="start"
+                >When I'm available for chat:</label
+              >
+              <input
+                required
+                type="datetime-local"
+                id="start"
+                name="start"
+                placeholder="Start"
+                class="form-control"
+              />
+            </div>
+            <div class="col-md-4 form-group mb-3">
+              <label class="mb-1" for="attendees"
+                >Remind me via Email "Hour(s) before":</label
+              >
+              <input
+                required
+                type="number"
+                id="attendees"
+                name="reminderEmail"
+                value="1"
+                class="form-control"
+              />
+            </div>
+            <div class="col-md-4 form-group mb-3">
+              <label class="mb-1" for="attendees"
+                >Remind me with a Popup "Minute(s) before":</label
+              >
+              <input
+                required
+                type="number"
+                id="attendees"
+                name="reminderPopup"
+                value="1"
+                class="form-control"
+              />
+            </div>
+            <div class="col-md-12 form-group mb-3">
+              <label class="mb-1" for="attendees"
+                >Invite someone to attend with you:</label
+              >
+              <input
+                type="text"
+                id="attendees"
+                name="attendees"
+                placeholder="Attendees Email addresses separated by (,)..."
+                class="form-control"
+              />
+            </div>
+            <div class="col-md-12 form-group">
+              <button type="submit" class="btn btn-primary d-block w-100">
+                Send
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
